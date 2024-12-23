@@ -30,7 +30,7 @@ export const Sidebar = () => {
           isGrid={type === "numbers"}
           isDisplay={type === "display"}
           onDragStart={(e) => onDragStart(e, type)}
-          isOnCalc={isOnCalc}
+          isOnCalc={false}
           isDisabled={isOnCalc}
         />
       ))}

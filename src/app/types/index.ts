@@ -1,5 +1,5 @@
+export type AppTheme = "light" | "dark";
 export type AppMode = "runtime" | "constructor";
-
 export type AppElementType = "display" | "operators" | "numbers" | "equal";
 
 export interface AppElement {

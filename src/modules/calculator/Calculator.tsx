@@ -4,16 +4,34 @@ import {
   selectAppMode,
   selectCalcItems,
   selectSidebarItems,
+  setAppMode,
 } from "@/app/slice";
-import { AppElementType } from "@/app/types";
+import { AppElementType, AppMode } from "@/app/types";
+import ConstructorIcon from "@/assets/icons/contructor-icon.svg?react";
+import RuntimeIcon from "@/assets/icons/runtime-icon.svg?react";
 import { itemsData } from "@/common/constants";
 import { useAppDispatch, useAppSelector } from "@/common/hooks";
-import { ModeSwitcher } from "@/ui/ModeSwitcher";
 import { clsx } from "clsx";
 import React, { useState } from "react";
 import { SidebarElement } from "../sidebar/components/SidebarElement";
 import { reset } from "./slice";
+import GroupIcon from "./assets/icons/group-icon.svg?react";
 import styles from "./styles.module.scss";
+
+import { CustomSwitch, Variant } from "@/ui/CustomSwitch";
+
+const appModeVariants: [Variant, Variant] = [
+  {
+    id: "runtime",
+    label: "Runtime",
+    icon: <RuntimeIcon />,
+  },
+  {
+    id: "constructor",
+    label: "Constructor",
+    icon: <ConstructorIcon />,
+  },
+];
 
 export const Calculator = () => {
   const dispatch = useAppDispatch();
@@ -21,6 +39,10 @@ export const Calculator = () => {
   const sidebarItems = useAppSelector(selectSidebarItems);
   const appMode = useAppSelector(selectAppMode);
   const [onDragEnter, setOnDragEnter] = useState<string | null>(null);
+
+  const onModeChange = (appMode: AppMode) => {
+    dispatch(setAppMode(appMode));
+  };
 
   const onDragEnterHandler = (
     e: React.DragEvent<HTMLDivElement>,
@@ -125,7 +147,11 @@ export const Calculator = () => {
 
   return (
     <div className={styles.calculator__wrapper}>
-      <ModeSwitcher />
+      <CustomSwitch
+        variants={appModeVariants}
+        value={appMode}
+        onChange={onModeChange}
+      />
 
       <div
         className={calcClassNames}
@@ -134,7 +160,7 @@ export const Calculator = () => {
         onDragEnter={(e) => onDragEnterHandler(e, "calculator")}
       >
         <div className={calcInfoClassNames}>
-          <span></span>
+          <GroupIcon />
           <span>Перетащите сюда</span>
           <span>любой элемент из левой панели</span>
         </div>

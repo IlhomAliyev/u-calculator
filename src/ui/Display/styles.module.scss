@@ -3,12 +3,12 @@
   height: 5.2rem;
   text-align: right;
   pointer-events: none;
-  color: #111827;
+  color: var(--accent-text-color);
   font-style: normal;
   font-weight: 800;
   font-size: 3.6rem;
   line-height: 4.4rem;
-  background-color: #f3f4f6;
+  background-color: var(--secondary-color);
   border-radius: 6px;
   padding: 4px 8px;
   overflow: hidden;

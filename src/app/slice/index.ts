@@ -1,11 +1,12 @@
 import { RootState } from "@/store";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AddToCalcPayload, AppElement, AppMode } from "../types";
+import { AddToCalcPayload, AppElement, AppMode, AppTheme } from "../types";
 
 interface AppState {
   sidebarItems: AppElement[];
   calcItems: AppElement[];
-  appMode: "runtime" | "constructor";
+  appMode: AppMode;
+  appTheme: AppTheme;
 }
 
 const sidebarItems: AppElement[] = [
@@ -35,6 +36,7 @@ const initialState: AppState = {
   sidebarItems,
   calcItems: [],
   appMode: "constructor",
+  appTheme: "light",
 };
 
 export const appSlice = createSlice({
@@ -75,14 +77,19 @@ export const appSlice = createSlice({
     setAppMode: (state, { payload }: PayloadAction<AppMode>) => {
       state.appMode = payload;
     },
+    setAppTheme: (state, { payload }: PayloadAction<AppTheme>) => {
+      state.appTheme = payload;
+    },
   },
 });
 
+export const selectAppTheme = (state: RootState) => state.appReducer.appTheme;
 export const selectAppMode = (state: RootState) => state.appReducer.appMode;
 export const selectSidebarItems = (state: RootState) =>
   state.appReducer.sidebarItems;
 export const selectCalcItems = (state: RootState) => state.appReducer.calcItems;
 
-export const { addToCalc, deleteFromCalc, setAppMode } = appSlice.actions;
+export const { addToCalc, deleteFromCalc, setAppMode, setAppTheme } =
+  appSlice.actions;
 
 export const appReducer = appSlice.reducer;

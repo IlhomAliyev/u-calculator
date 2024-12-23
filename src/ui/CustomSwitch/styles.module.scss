@@ -4,14 +4,13 @@
   position: absolute;
   top: -6rem;
   width: 100%;
-  align-items: center;
   font-style: normal;
   font-weight: 500;
   font-size: 1.4rem;
   line-height: 1.5rem;
-  color: #4d5562;
+  color: var(--tertiary-color);
   border-radius: 6px;
-  background-color: #f3f4f6;
+  background-color: var(--secondary-color);
 
   input {
     position: absolute !important;
@@ -23,8 +22,7 @@
   }
 
   label {
-    background-color: #f3f4f6;
-    color: rgba(0, 0, 0, 0.6);
+    color: var(--text-color);
     font-size: 14px;
     line-height: 1;
     text-align: center;
@@ -34,7 +32,8 @@
     width: 100%;
     border-radius: 6px;
     padding: 1.1rem 1.2rem;
-    border: 1px solid #f3f4f6;
+    border: 1px solid transparent;
+    border-color: transparent;
   }
 
   label:hover {
@@ -42,14 +41,22 @@
   }
 
   input:checked + label {
-    background-color: #ffffff;
+    background-color: var(--bg-color);
     box-shadow: none;
-    border: 1px solid #e2e3e5;
+    border-color: var(--border-color);
+
+    svg {
+      color: var(--accent-color);
+    }
   }
 
   label {
     align-items: center;
     gap: 8px;
     display: flex;
+  }
+
+  svg {
+    color: var(--tertiary-color);
   }
 }

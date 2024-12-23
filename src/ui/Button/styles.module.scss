@@ -4,28 +4,31 @@
   cursor: pointer;
   border-radius: 6px;
   border: none;
-  box-shadow: inset 0 0 0 1px #e2e3e5;
+  box-shadow: inset 0 0 0 1px var(--border-color);
+  background-color: transparent;
 
   font-style: normal;
   font-weight: 500;
   font-size: 1.4rem;
   line-height: 1.5rem;
   text-align: center;
-  color: #000000;
+  color: var(--text-color);
   transition: all 0.2s;
 
   &:not(:disabled) {
     &:active {
-      box-shadow: inset 0 0 0 2px #5d5fef;
+      box-shadow: inset 0 0 0 2px var(--accent-color);
     }
   }
 
   &:disabled {
     pointer-events: none;
+    opacity: 0.5;
   }
 
   &__blue {
-    background-color: #5d5fef;
-    color: #ffffff;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: inset 0 0 0 1px transparent;
   }
 }

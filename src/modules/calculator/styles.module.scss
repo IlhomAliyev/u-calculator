@@ -26,19 +26,15 @@
     align-items: center;
     justify-content: center;
     pointer-events: none;
+
+    svg {
+      color: var(--text-color);
+      margin-bottom: 1.2rem;
+    }
   }
 
   &__info span:first-of-type {
-    background-image: url("./assets/icons/group-icon.svg");
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    width: 2.5rem;
-    height: 2.5rem;
-    margin-bottom: 1.2rem;
-  }
-
-  &__info span:nth-of-type(2) {
-    color: #5d5fef;
+    color: var(--accent-color);
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
