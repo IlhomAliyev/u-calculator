@@ -1,0 +1,86 @@
+.calculator__wrapper {
+  flex-basis: 24rem;
+  position: relative;
+}
+
+.calculator {
+  flex-basis: 24rem;
+  height: 43.6rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+
+  &__initial {
+    border: 2px dashed #c4c4c4;
+  }
+
+  &__initialOnDrag {
+    border: 2px dashed #c4c4c4;
+    background-color: #f0f9ff;
+  }
+
+  &__info {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  &__info span:first-of-type {
+    background-image: url("./assets/icons/group-icon.svg");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  &__info span:nth-of-type(2) {
+    color: #5d5fef;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 4px;
+  }
+
+  &__info span:last-of-type {
+    color: #6b7280;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    width: 45%;
+    text-align: center;
+  }
+
+  &__infoDisabled {
+    display: none;
+  }
+
+  &__insertDown div:last-of-type::before {
+    content: "";
+    position: absolute;
+    background-image: url("../../assets/icons/line.svg");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 110%;
+    height: 1rem;
+    bottom: -1rem;
+    left: -4px;
+  }
+
+  &__insertUp div:last-of-type::before {
+    content: "";
+    position: absolute;
+    background-image: url("../../assets/icons/line.svg");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 110%;
+    height: 1rem;
+    bottom: -1rem;
+    left: -4px;
+  }
+}

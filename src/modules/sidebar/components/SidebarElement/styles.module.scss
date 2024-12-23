@@ -1,0 +1,47 @@
+.sidebarElement {
+  width: 100%;
+  gap: 8px;
+  padding: 4px;
+  display: flex;
+  cursor: move;
+  background-color: #ffffff;
+  position: relative;
+  margin-bottom: 1rem;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.sidebarElement__grid {
+  display: grid;
+
+  button:nth-last-child(2) {
+    grid-column: 1 / span 2;
+  }
+
+  button:last-child {
+    grid-row: 4;
+    grid-column: 3;
+  }
+}
+
+.sidebarElement__disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.sidebarElement__onCalc {
+  padding: none;
+  box-shadow: none;
+}
+
+.sidebarElement__insertUp::before {
+  content: "";
+  position: absolute;
+  background-image: url("../../../../assets/icons/line.svg");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  width: 110%;
+  height: 1rem;
+  top: -1rem;
+  left: -4px;
+}
